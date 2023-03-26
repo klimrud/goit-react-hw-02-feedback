@@ -1,0 +1,35 @@
+
+h2{
+  margin: 0 auto;
+  font-size: 36px;
+  justify-content: center;
+  padding: 10px 15px 30px ;
+  color: #4e545c;
+}
+
+p{
+  margin: 0 ;
+  color: #4e545c;
+  font-size: 24px;
+  align-items:  flex-end;
+  /* justify-content: flex-start; */
+  /* padding: 20px 0; */
+}
+
+
+
+.statistics{
+  display: flex;
+  flex-direction:column
+}
+
+span{
+  font-size: 24px;
+  color: #4e545c;
+  border-bottom: 1px solid #8492a6;
+  display: flex;
+  align-items:  flex-end;
+  justify-content: space-between;
+  margin-top: 10px;
+
+}
