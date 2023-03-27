@@ -63,7 +63,7 @@ export class Feedback extends Component {
     return (
      
       <div className={css.containers}>
-         {/* <Notification message="There is no feedback">ппп</Notification> */}
+         {/* {total === 0 ? <Notification message="There is no feedback" /> :  */}
         <h2>Please leave feedback</h2>
         
         <FeedbackOptions
@@ -71,23 +71,19 @@ export class Feedback extends Component {
           onNeutral={this.handleClickNeutral}
           onBad={this.handleClickBad}
         />
-        { good === 0 && neutral===0 && bad===0 ? (<p>No feedback given</p>):(
-        <Statistics
+         { total ===0 ? <p className={css.title}>No feedback given</p> ||
+        //  <Notification message="There is no feedback" >
+          <p>There is no feedback</p>
+          // </Notification> 
+          : 
+        (<Statistics
           good={good}
           neutral={neutral}
           bad={bad}
           total={total}
           positivePercentage={positivePercentage}
-        /> 
-          )} 
-        {/* <div className={css.statistics}>
-          <p>Statistics</p>
-          <span>Good:{this.state.good}</span>
-          <span>Neutral:{this.state.neutral}</span>
-          <span>Bad:{this.state.bad}</span>
-          <span>Total:{this.state.total}</span>
-          <span>Positive feedback:{this.state.positiveFeedback}%</span>
-        </div> */}
+        />)
+  }
       </div>
     );
   }

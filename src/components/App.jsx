@@ -12,7 +12,7 @@ export class App extends Component {
   return (
     <div>
      <p>Feedback widget</p>
-      <Feedback />
+     <Feedback />
     </div>
   );
   }
