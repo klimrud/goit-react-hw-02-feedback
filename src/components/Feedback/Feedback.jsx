@@ -1,4 +1,5 @@
 import { Component } from 'react';
+// import { Notification } from './Notification';
 import { FeedbackOptions } from 'components/Feedback/FeedbackOptions.jsx';
 import { Statistics } from 'components/Feedback/Statistics.jsx';
 import css from 'components/Feedback/Feedback.module.css';
@@ -13,18 +14,13 @@ export class Feedback extends Component {
   };
 
   handleClickGood = () => {
-    // const total = 0
-    // const positivePercentage= 0
+   
     this.setState(prevState => ({
       good: prevState.good + 1,
     }));
-    // this.setState(prevState => ({
-    //   total: prevState.total + 1,
-    // }));
+   
     this.countTotalFeedback(this.state.total);
-    // this.setState(prevState => ({
-    //   positivePercentage: Math.ceil((prevState.good / prevState.total) * 100),
-    // }));
+   
 
     this.countPositiveFeedbackPercentage(this.state.positivePercentage);
   };
@@ -33,13 +29,9 @@ export class Feedback extends Component {
     this.setState(prevState => ({
       neutral: prevState.neutral + 1,
     }));
-    // this.setState(prevState => ({
-    //   total: prevState.total + 1,
-    // }));
+   
     this.countTotalFeedback(this.state.total);
-    // this.setState(prevState => ({
-    //   positivePercentage: Math.ceil((prevState.good / prevState.total) * 100),
-    // }));
+  
     this.countPositiveFeedbackPercentage(this.state.positivePercentage);
   };
 
@@ -48,28 +40,14 @@ export class Feedback extends Component {
       bad: prevState.bad + 1,
     }));
 
-    // countTotalFeedback =() => {
-    // this.setState(prevState => ({
-    //   total: prevState.total + 1,
-    // }));
-    // }
-
-    // this.setState(prevState => ({
-    //   positivePercentage: Math.ceil((prevState.good / prevState.total) * 100),
-    // }));
     this.countTotalFeedback(this.state.total);
     this.countPositiveFeedbackPercentage(this.state.positivePercentage);
   };
-  //  state = { visible: false,};
-
-  // toggle =()=> {
-  //   this.setState(prevState =>({ visible: !prevState.visible,}));
-  // };
+  
   countTotalFeedback() {
     this.setState(prevState => ({
       total: prevState.total + 1,
     }));
-    console.log('total1', this.state.total);
     return this.state.total;
   }
 
@@ -77,27 +55,31 @@ export class Feedback extends Component {
     this.setState(prevState => ({
       positivePercentage: Math.ceil((prevState.good / prevState.total) * 100),
     }));
-    console.log('first1', this.state.positivePercentage);
     return this.state.positivePercentage;
   }
 
   render() {
+     const {good, neutral, bad, total, positivePercentage } = this.state;
     return (
+     
       <div className={css.containers}>
+         {/* <Notification message="There is no feedback">ппп</Notification> */}
         <h2>Please leave feedback</h2>
-        {/* <FeedbackOptions options={} onLeaveFeedback={}></FeedbackOptions> */}
+        
         <FeedbackOptions
           onGood={this.handleClickGood}
           onNeutral={this.handleClickNeutral}
           onBad={this.handleClickBad}
         />
+        { good === 0 && neutral===0 && bad===0 ? (<p>No feedback given</p>):(
         <Statistics
-          good={this.state.good}
-          neutral={this.state.neutral}
-          bad={this.state.bad}
-          total={this.state.total}
-          positivePercentage={this.state.positivePercentage}
-        />
+          good={good}
+          neutral={neutral}
+          bad={bad}
+          total={total}
+          positivePercentage={positivePercentage}
+        /> 
+          )} 
         {/* <div className={css.statistics}>
           <p>Statistics</p>
           <span>Good:{this.state.good}</span>

@@ -11,18 +11,9 @@ export class App extends Component {
   render(){
   return (
     <div>
-      1 - Feedback widget
+     <p>Feedback widget</p>
       <Feedback />
     </div>
   );
   }
 };
-
-// export const App = () => {
-//   return (
-//     <div>
-//       1 - Feedback widget
-//       <Feedback />
-//     </div>
-//   );
-// };
