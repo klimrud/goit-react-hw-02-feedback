@@ -1,5 +1,6 @@
-// import { ReactNotifications, Store } from 'react-notifications-component';
-
-export const Notification = (message = 'There is no feedback') => {
-  return <p>{message}</p>;
+export const Notification = ({ message = 'There is no feedback' }) => {
+  // console.log('hi');
+  // Notiflix.Notify.info('There is no feedback');
+  return alert(message);
+  // return Notiflix.Notify.info(message);
 };

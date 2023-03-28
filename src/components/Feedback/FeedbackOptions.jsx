@@ -1,23 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import css from 'components/Feedback/FeedbackOptions.module.css'
+import { reviews } from './reviews';
+import css from 'components/Feedback/FeedbackOptions.module.css';
 
-export const FeedbackOptions = ({onGood, onNeutral, onBad}) => {
-  return(<div className={css.containerBtn}>
-    <button className={css.btnGreen} type="click" onClick={onGood}>
-      Good
-    </button>
-    <button className={css.btnBlue} type="click" onClick={onNeutral}>
-      Neutral
-    </button>
-    <button className={css.btnRed} type="click" onClick={onBad}>
-      Bad
-    </button>
-  </div>);
-}
+export const FeedbackOptions = ({ onLeaveFeedback }) => {
+  return (
+    <div className={css.containerBtn}>
+      <button
+        className={css.btnGreen}
+        type="button"
+        onClick={() => onLeaveFeedback(reviews.good)}
+      >
+        Good
+      </button>
+      <button
+        className={css.btnBlue}
+        type="button"
+        onClick={() => onLeaveFeedback(reviews.neutral)}
+      >
+        Neutral
+      </button>
+      <button
+        className={css.btnRed}
+        type="button"
+        onClick={() => onLeaveFeedback(reviews.bad)}
+      >
+        Bad
+      </button>
+    </div>
+  );
+};
 
 FeedbackOptions.propTypes = {
-  onGood: PropTypes.func.isRequired, 
-  onNeutral:PropTypes.func.isRequired, 
-  onBad: PropTypes.func.isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
 };

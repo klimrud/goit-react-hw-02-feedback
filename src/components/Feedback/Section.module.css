@@ -1,13 +1,13 @@
-.containers{
-  width: 400px;
+ .containers{
+  width: 300px;
   border: 1px solid #e3e3e3;
   background: #eff6ff;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   padding: 30px;
-}
+} 
 
-h2{
+.title{
   margin: 0 auto;
   font-size: 36px;
   justify-content: center;
@@ -16,8 +16,4 @@ h2{
 }
 
 
-.title{
-  margin: 0 auto ;
-  font-size: 28px;
-  padding: 20px 0;
-}
+
